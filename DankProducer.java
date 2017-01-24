@@ -43,7 +43,7 @@ public class DankProducer {
 
         ProducerConfig config = new ProducerConfig(props);
 
-        Producer<String, String> producer = new Producer<String, String>(props);
+        Producer<String, String> producer = new Producer<String, String>(config);
 
         for (long nEvents = 0; nEvents < events; nEvents++) {
             long runtime = new Date().getTime();
