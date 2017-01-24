@@ -1,21 +1,21 @@
 /**
  * Created by user on 1/23/17.
  */
-//package kafka;
-//import kafka.tools.ConsoleProducer.ProducerConfig;
-//import org.apache.kafka.clients.producer.KafkaProducer;
-//import org.apache.kafka.clients.producer.ProducerRecord;
-//import org.apache.kafka.clients.producer.RecordMetadata;
+package kafka;
+import kafka.tools.ConsoleProducer.ProducerConfig;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 //import util.properties packages
 import java.util.*;
 import java.lang.*;
 
 //import simple producer packages
-import kafka.javaapi.producer.Producer;
-import kafka.producer.*;
-import kafka.javaapi.*;
-import kafka.producer.KeyedMessage;
-import kafka.producer.ProducerConfig;
+//import kafka.javaapi.producer.Producer;
+//import kafka.producer.*;
+//import kafka.javaapi.*;
+//import kafka.producer.KeyedMessage;
+//import kafka.producer.ProducerConfig;
 
 
 public class DankProducer {
