@@ -6,7 +6,7 @@
 import java.util.Properties;
 
 //import simple producer packages
-import kafka.*
+import kafka.*;
 
 public class DankProducer {
 
