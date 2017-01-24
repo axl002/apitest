@@ -91,7 +91,7 @@ public class Dankapi {
 		String previousChange = "bar";
 		String urlContent = "";
 		while(theNum < theLimit) {
-
+			TimeUnit.SECONDS.sleep(1);
 			URL url = new URL(theSource + nextChange);
 			System.out.println(url.toString());
 			BufferedReader br = wrapBR(url);
@@ -117,8 +117,8 @@ public class Dankapi {
 
 				// check if new key, if not there are no new items
 				if(!nextChange.equals(previousChange)){
-					BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +previousChange + ".txt"));
 					previousChange = nextChange;
+					BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +previousChange + ".txt"));
 					bw.write(urlContent);
 					bw.close();
 					theNum++;
