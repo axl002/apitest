@@ -4,7 +4,7 @@
 
 //import util.properties packages
 import java.util.*;
-import java.Lang.*;
+import java.lang.*;
 
 //import simple producer packages
 import kafka.javaapi.producer.Producer;
