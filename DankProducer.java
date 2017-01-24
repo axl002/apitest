@@ -4,9 +4,10 @@
 
 //import util.properties packages
 import java.util.*;
+import java.Lang.*;
 
 //import simple producer packages
-import kafka.*;
+import kafka.producer.*;
 
 
 public class DankProducer {
