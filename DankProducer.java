@@ -20,7 +20,7 @@ import kafka.producer.ProducerConfig;
 
 public class DankProducer {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Properties props = new Properties();
         props.put("metadata.broker.list", "broker1:9092,broker2:9092");
         props.put("acks", "all");
@@ -32,10 +32,11 @@ public class DankProducer {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for(int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
             producer.send(new ProducerRecord<String, String>("my-topic", Integer.toString(i), Integer.toString(i)));
 
         producer.close();
+    }
 
 //    public static void main(String[] args) {
 //        long events = Long.parseLong(args[0]);
