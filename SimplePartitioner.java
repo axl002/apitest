@@ -1,8 +1,5 @@
-//import util.properties packages
-import java.util.*;
-
-//import simple producer packages
-import kafka.*;
+import kafka.producer.Partitioner;
+import kafka.utils.VerifiableProperties;
 
 public class SimplePartitioner implements Partitioner {
     public SimplePartitioner (VerifiableProperties props) {
