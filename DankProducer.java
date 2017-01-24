@@ -44,8 +44,8 @@ public class DankProducer {
 
         for (long nEvents = 0; nEvents < events; nEvents++) {
             long runtime = new Date().getTime();
-            String ip = “192.168.2.” + rnd.nextInt(255);
-            String msg = runtime + “,www.example.com,” + ip;
+            String ip = "192.168.2." + rnd.nextInt(255);
+            String msg = runtime + ",www.example.com," + ip;
             KeyedMessage<String, String> data = new KeyedMessage<String, String>("page_visits", ip, msg);
             producer.send(data);
         }
