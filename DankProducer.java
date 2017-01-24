@@ -14,7 +14,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 //import ProducerRecord packages
 import org.apache.kafka.clients.producer.ProducerRecord;
 
-public static class DankProducer {
+public class DankProducer {
 
     public static void main(String[] args){
         Properties props = new Properties();
