@@ -39,7 +39,7 @@ public class DankProducer {
         Properties props = new Properties();
         props.put("metadata.broker.list", "broker1:9092,broker2:9092 ");
         props.put("serializer.class", "kafka.serializer.StringEncoder");
-        //props.put("partitioner.class", "SimplePartitioner");
+        props.put("partitioner.class", "SimplePartitioner");
         props.put("request.required.acks", "1");
 
         ProducerConfig config = new ProducerConfig(props);
