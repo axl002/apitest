@@ -8,6 +8,8 @@ import java.lang.*;
 
 //import simple producer packages
 import kafka.javaapi.producer.Producer;
+import kafka.javaapi.producer.KeyedMessage;
+import kafka.javaapi.producer.ProducerConfig;
 import kafka.javaapi.*;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
