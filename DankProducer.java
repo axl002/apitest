@@ -41,7 +41,7 @@ public class DankProducer {
         //props.put("partitioner.class", "SimplePartitioner");
         props.put("request.required.acks", "1");
 
-        //ProducerConfig config = new ProducerConfig(props);
+        ProducerConfig config = new ProducerConfig(props);
 
         Producer<String, String> producer = new Producer<String, String>(props);
 
