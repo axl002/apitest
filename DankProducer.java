@@ -1,11 +1,11 @@
 /**
  * Created by user on 1/23/17.
  */
-package kafka;
-import kafka.tools.ConsoleProducer.ProducerConfig;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
+//package kafka;
+//import kafka.tools.ConsoleProducer.ProducerConfig;
+//import org.apache.kafka.clients.producer.KafkaProducer;
+//import org.apache.kafka.clients.producer.ProducerRecord;
+//import org.apache.kafka.clients.producer.RecordMetadata;
 //import util.properties packages
 import java.util.*;
 import java.lang.*;
