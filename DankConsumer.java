@@ -13,7 +13,7 @@ public class DankConsumer {
 
 
         String topic = "my-topic";
-        String group = args[1].toString();
+        //String group = args[1].toString();
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
         //props.put("group.id", group);
