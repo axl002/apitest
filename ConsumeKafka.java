@@ -5,6 +5,9 @@
 import java.util.Properties;
 import java.util.Arrays;
 import java.io.*;
+import java.util.concurrent.TimeUnit;
+
+import org.json.*;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -42,12 +45,22 @@ public class ConsumeKafka {
             for (ConsumerRecord<String, String> record : records){
 //                double curOffset = record.offset();
 //                String curKey = record.key();
-//                String curVal = record.value();
+                String curVal = record.value();
+                JSONObject allStash = new JSONObject(curVal);
+                String testString = "nothing here";
+                try {
+                    testString = allStash.getString("next_change_id");
+                }
+                catch (Exception oopsNoKey) {
+                    System.out.println("ooops invalid info pulled try again later...");
+                    TimeUnit.SECONDS.sleep(10);
+                }
+
 
 //                BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +record.key() + ".txt"));
 //                bw.write(record.value());
 //                bw.close();
-                System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), record.value());
+                System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), testString);
             }
 
 
