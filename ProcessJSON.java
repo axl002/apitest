@@ -34,7 +34,7 @@ public class ProcessJSON {
             if (listing != null){
                 System.out.println(listing.length);
                 for(File child : listing){
-                    itemize(theLimit);
+                    itemize(theLimit, child);
                 }
             }
         }catch (Exception e) {
@@ -44,11 +44,11 @@ public class ProcessJSON {
     }
 
     //extract item name, item id, item owner account name, item owner account id, item price, current time
-    public static void itemize(int theLimit) throws Exception{
+    public static void itemize(int theLimit, File child) throws Exception{
 
         // load each dump
         for(int i = 0; i < theLimit; i++){
-            FileReader fr = new FileReader("dump" + Integer.toString(i) + ".txt");
+            FileReader fr = new FileReader(whereFind+child.getName());
             if(null != fr){
                 BufferedReader br = wrapBR(fr);
                 String foobar = "";
