@@ -48,7 +48,7 @@ public class ProcessJSON {
 
         // load each dump
         for(int i = 0; i < theLimit; i++){
-            FileReader fr = new FileReader(whereFind+child.getName());
+            FileReader fr = new FileReader(child);
             if(null != fr){
                 BufferedReader br = wrapBR(fr);
                 String foobar = "";
