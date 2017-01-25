@@ -173,6 +173,7 @@ public class IngestKafka {
                     JSONArray stashes = allStash.getJSONArray("stashes");
                     for(int iStash = 0; iStash < stashes.length(); iStash++){
                         String accountName = stashes.getJSONObject(iStash).getString("accountName");
+                        System.out.println(accountName);
                         JSONArray items = stashes.getJSONObject(iStash).getJSONArray("items");
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
