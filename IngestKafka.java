@@ -186,7 +186,7 @@ public class IngestKafka {
                             JSONObject newInfo = new JSONObject();
                             newInfo.put("owner",accountName);
                             items.getJSONObject(iItems).put("owner", newInfo);
-                            System.out.println(items.getJSONObject(iItems).getString("accountName"));
+                            System.out.println(items.getJSONObject(iItems).getString("owner"));
                             wrapProducerSend(previousChange, items.getJSONObject(iItems).toString());
                         }
                     }
