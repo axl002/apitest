@@ -22,6 +22,7 @@ public class DankConsumer {
         props.put("session.timeout.ms", "30000");
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.deserializer", "org.apache.kafka.common.serialization.StringSerializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
 
         consumer.subscribe(Arrays.asList(topic));
