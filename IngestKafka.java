@@ -183,7 +183,9 @@ public class IngestKafka {
                         JSONArray items = stashes.getJSONObject(iStash).getJSONArray("items");
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
-                            items.getJSONObject(iItems).append("owner", accountName);
+                            JSONObject newInfo = new JSONObject();
+                            newInfo.put("owner",accountName);
+                            items.getJSONObject(iItems).put("owner", newInfo);
                             System.out.println(items.getJSONObject(iItems).getString("accountName"));
                             wrapProducerSend(previousChange, items.getJSONObject(iItems).toString());
                         }
