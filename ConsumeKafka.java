@@ -51,7 +51,7 @@ public class ConsumeKafka {
                 String testString = "nothing here";
                 try {
                     testString = item.getString("name")+" "+item.getString("typeLine") +"\n" + item.getString("owner");
-                    Systen.out.println(testString);
+                    System.out.println(testString);
                 }
                 catch (Exception oopsNoKey) {
                     System.out.println("ooops invalid info pulled try again later...");
@@ -62,7 +62,7 @@ public class ConsumeKafka {
 //                BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +record.key() + ".txt"));
 //                bw.write(record.value());
 //                bw.close();
-                System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), testString);
+                //System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), testString);
             }
 
 

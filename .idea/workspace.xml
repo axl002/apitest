@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f5e47571-bedc-447a-b7f2-05b73e685fb2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConsumeKafka.java" afterPath="$PROJECT_DIR$/ConsumeKafka.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IngestKafka.java" afterPath="$PROJECT_DIR$/IngestKafka.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,8 +86,8 @@
       <file leaf-file-name="ConsumeKafka.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ConsumeKafka.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+            <state relative-caret-position="474">
+              <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -692,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ConsumeKafka.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+        <state relative-caret-position="474">
+          <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
