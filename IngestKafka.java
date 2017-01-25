@@ -74,7 +74,7 @@ public class IngestKafka {
 
         // send time stamp as key
         // send api pull as value
-        producer.send(new ProducerRecord<String, String>(topic, Long.toString(System.currentTimeMillis())+previousChange, urlContent));
+        producer.send(new ProducerRecord<String, String>(topic, Long.parseLong((LONG)System.currentTimeMillis())+previousChange, urlContent));
 
     }
     // make JSON object and extract array of user stashes (shops)
@@ -165,6 +165,8 @@ public class IngestKafka {
                 // check if new key, if not there are no new items
                 if(!nextChange.equals(previousChange)){
                     previousChange = nextChange;
+
+                    // send producer
                     wrapProducerSend(previousChange, urlContent);
                     //BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +previousChange + ".txt"));
                     //bw.write(urlContent);

@@ -44,9 +44,9 @@ public class ConsumeKafka {
 //                String curKey = record.key();
 //                String curVal = record.value();
 
-                BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +record.key() + ".txt"));
-                bw.write(record.value());
-                bw.close();
+//                BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +record.key() + ".txt"));
+//                bw.write(record.value());
+//                bw.close();
                 System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), record.value());
             }
 
