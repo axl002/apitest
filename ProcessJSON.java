@@ -28,7 +28,7 @@ public class ProcessJSON {
         String whereFind = "/home/ubuntu/hugedump/";
         int theLimit = 5;
         try {
-            Fire dir = new File(whereFind);
+            File dir = new File(whereFind);
             File[] listing = dir.listFiles();
             if (listing != null){
                 for(File child : listing){
