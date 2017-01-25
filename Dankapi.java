@@ -2,11 +2,25 @@
 import java.io.*;
 
 import java.net.URL;
+import java.util.Properties;
 import java.util.concurrent.*;
 import java.lang.*;
 import org.json.*;
 
+
+//kafka imports
+
+import kafka.tools.ConsoleProducer.ProducerConfig;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+
+//time imports
+
+
 public class Dankapi {
+
+	KafkaProducer<String, String> producer;
 	static int reps = 0;
 	static int numberOfQueryToGet = 3;
 	static String startingKey = "0";
@@ -14,6 +28,33 @@ public class Dankapi {
 	static String whereToDump = "testdump/";
 	public static void main(String[] args){
 
+
+		//kafka config
+		String topic = "Path of Exile api";
+		Properties props = new Properties();
+		// THIS WORKS NOW
+		props.put("bootstrap.servers", "localhost:9092");
+		//props.put("metadata.broker.list", "broker1:9092,broker2:9092");
+		props.put("acks", "all");
+		props.put("retries", 0);
+		props.put("batch.size", 16384);
+		props.put("linger.ms", 1);
+		props.put("buffer.memory", 33554432);
+
+		// change this to a time stamp serializer
+		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+
+		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+		producer = new KafkaProducer<String, String>(props);
+
+
+
+		producer.close()
+
+
+		//dank config
 		if (args.length >= 1){
 			startingKey = args[0];
 			whereToDump = args[1];
@@ -27,9 +68,18 @@ public class Dankapi {
 		catch (Exception eeee){
 			eeee.printStackTrace();
 		}
-		System.out.println(reps);
+
 	}
 
+
+	private static void wrapProducerSend(String previousChange, String apiContent){
+
+		// send time stamp as key
+		// send api pull as value
+		producer.send(new ProducerRecord<String, String>(topic, Long.toString(System.currentTimeMillis())+previousChange, Integer.toString(apiContent)));
+
+
+	}
 	// make JSON object and extract array of user stashes (shops)
 	public static void parseAndPrint(String jsonString){
 
@@ -118,9 +168,10 @@ public class Dankapi {
 				// check if new key, if not there are no new items
 				if(!nextChange.equals(previousChange)){
 					previousChange = nextChange;
-					BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +previousChange + ".txt"));
-					bw.write(urlContent);
-					bw.close();
+					wrapProducerSend(previousChange, urlContent);
+					//BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +previousChange + ".txt"));
+					//bw.write(urlContent);
+					//bw.close();
 					theNum++;
 				}
 				else {
@@ -150,5 +201,23 @@ public class Dankapi {
 			}
 		}
 	}
+
+//	public static void testKafka(){
+//		Properties props = new Properties();
+//		props.put("bootstrap.servers", "localhost:9092");
+//		props.put("acks", "all");
+//		props.put("retries", 0);
+//		props.put("batch.size", 16384);
+//		props.put("linger.ms", 1);
+//		props.put("buffer.memory", 33554432);
+//		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+//		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+//
+//		Producer<String, String> producer = new KafkaProducer<>(props);
+//		for(int i = 0; i < 100; i++)
+//			producer.send(new ProducerRecord<String, String>("my-topic", Integer.toString(i), Integer.toString(i)));
+//
+//		producer.close();
+//	}
 
 }
