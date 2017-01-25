@@ -17,7 +17,7 @@ public class ConsumeKafka {
         if (args.length > 0){
             whereToDump = args[0];
         }
-        String topic = "my-topic";
+        String topic = "poeapi";
         //String group = args[1].toString();
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");

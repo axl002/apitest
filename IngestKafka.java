@@ -19,17 +19,18 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 
 public class IngestKafka {
 
-    KafkaProducer<String, String> producer;
+    static KafkaProducer<String, String> producer;
     static int reps = 0;
     static int numberOfQueryToGet = 3;
     static String startingKey = "0";
     static String theSource = "http://api.pathofexile.com/public-stash-tabs?id=";
     static String whereToDump = "testdump/";
+    static String topic = "poeapi";
     public static void main(String[] args){
 
 
         //kafka config
-        String topic = "Path of Exile api";
+
         Properties props = new Properties();
         // THIS WORKS NOW
         props.put("bootstrap.servers", "localhost:9092");
