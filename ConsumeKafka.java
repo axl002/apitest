@@ -50,7 +50,7 @@ public class ConsumeKafka {
                 JSONObject item = new JSONObject(curVal);
                 String testString = "nothing here";
                 try {
-                    testString = item.getString("name")+item.getString("typeLine");
+                    testString = item.getString("name")+" "+item.getString("typeLine");
                 }
                 catch (Exception oopsNoKey) {
                     System.out.println("ooops invalid info pulled try again later...");
@@ -61,7 +61,7 @@ public class ConsumeKafka {
 //                BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +record.key() + ".txt"));
 //                bw.write(record.value());
 //                bw.close();
-                System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), testString);
+                //System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), testString);
             }
 
 
