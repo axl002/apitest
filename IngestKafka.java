@@ -79,7 +79,7 @@ public class IngestKafka {
         // send api pull as value
         DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
         Date dateobj = new Date();
-        producer.send(new ProducerRecord<String, String>(topic, df.format(dateobj) +  previousChange, urlContent));
+        producer.send(new ProducerRecord<String, String>(topic, df.format(dateobj) +  previousChange, "test string"));
 
     }
     // make JSON object and extract array of user stashes (shops)
