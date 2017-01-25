@@ -174,7 +174,7 @@ public class IngestKafka {
                     for(int iStash = 0; iStash < stashes.length(); iStash++){
                             String accountName = "nullName";
                         try {
-                            String accountName = stashes.getJSONObject(iStash).getString("accountName");
+                            accountName = stashes.getJSONObject(iStash).getString("accountName");
                         }catch (Exception nullAccount){
                             System.out.println("null account skipped");
                         }
