@@ -12,7 +12,7 @@ public class redisTest {
         for (int i = 0; i < 15;i++){
             int  n = rand.nextInt(50) + 1;
             System.out.println(n);
-            jedis.set("price", n);
+            jedis.lpush("price", Integer.toString(n));
         }
         // Get the stored data and print it
         System.out.println("Stored string in redis:: "+ jedis.get("price"));
