@@ -40,7 +40,7 @@ public class IngestKafka {
         //props.put("metadata.broker.list", "broker1:9092,broker2:9092");
         props.put("acks", "all");
         props.put("retries", 0);
-        props.put("batch.size", 8000000);
+        props.put("batch.size", 20000000);
         props.put("linger.ms", 1);
         props.put("buffer.memory", 33554432);
 
