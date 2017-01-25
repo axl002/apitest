@@ -172,7 +172,7 @@ public class IngestKafka {
                     previousChange = nextChange;
                     JSONArray stashes = allStash.getJSONArray("stashes");
                     for(int iStash = 0; iStash < stashes.length(); iStash++){
-                        JSONArray items = stashes.getJSONArray(iStash).getJSONArray("items");
+                        JSONArray items = stashes.getJSONObject(iStash).getJSONArray("items");
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
                             wrapProducerSend(previousChange, items.getJSONObject(i).toString());
