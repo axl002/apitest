@@ -1,7 +1,7 @@
 /**
  * Created by user on 1/23/17.
  */
-package kafka;
+
 import kafka.tools.ConsoleProducer.ProducerConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
