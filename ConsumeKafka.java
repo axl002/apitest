@@ -63,8 +63,8 @@ public class ConsumeKafka {
                     //System.out.println(testString);
                     try {
                         String price = item.getString("note");
-                        int  n = rand.nextInt(50) + 1;
-                        jedis.lpush(item.getString("typeLine"), Integer.toString(n));
+                        double  n = CurrencyConverter.parseValue(price);
+                        jedis.lpush(item.getString("typeLine"), Double.toString(n));
                         System.out.println(item.getString("typeLine")+" "+ price);
                     }
                     catch (Exception noNote) {

@@ -51,7 +51,7 @@ public class Dankapi {
 
 
 
-		producer.close()
+		producer.close();
 
 
 		//dank config

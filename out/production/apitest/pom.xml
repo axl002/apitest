@@ -16,6 +16,11 @@
             <version>${flink.version}</version>
         </dependency>
     </dependencies>
+    <dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-connector-kafka</artifactId>
+    <version>0.9.1</version>
+    </dependency>
 
   <build>
      <plugins>
@@ -31,3 +36,4 @@
         </plugin>
       </plugins>    
     </build>
+
