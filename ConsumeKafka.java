@@ -45,7 +45,7 @@ public class ConsumeKafka {
 
         //redis connect
         Jedis jedis = new Jedis("localhost", 30001);
-        System.out.println("Connection to server sucessfully");
+        System.out.println("Connection to redis server sucessfully");
 
         Random rand = new Random();
 
@@ -65,7 +65,7 @@ public class ConsumeKafka {
                         String price = item.getString("note");
                         int  n = rand.nextInt(50) + 1;
                         jedis.lpush(item.getString("name")+" "+item.getString("typeLine"), Integer.toString(n));
-                        System.out.println(jedis.lpop(item.getString("name")+" "+item.getString("typeLine")));
+                        System.out.println( item.getString("name")+" "+item.getString("typeLine")+" "+ jedis.lpop(item.getString("name")+" "+item.getString("typeLine")));
                     }
                     catch (Exception noNote) {
                         // no note means no price means not on sale
