@@ -170,9 +170,16 @@ public class IngestKafka {
                 // check if new key, if not there are no new items
                 if(!nextChange.equals(previousChange)){
                     previousChange = nextChange;
+                    JSONArray stashes = allStash.getJSONArray("stashes");
+                    for(JSONObject stash : stashes){
+                        JSONArray items = stash.getJSONArray("items");
+                        for(JSONAObject item : items){
+                            // send producer
+                            wrapProducerSend(previousChange, item.toString());
+                        }
+                    }
 
-                    // send producer
-                    wrapProducerSend(previousChange, urlContent);
+
                     //BufferedWriter bw = new BufferedWriter(new FileWriter(whereToDump +previousChange + ".txt"));
                     //bw.write(urlContent);
                     //bw.close();
