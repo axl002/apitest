@@ -52,7 +52,7 @@ public class DankConsumer {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Consumer consumer = new Consumer();
+        KafkaConsumer consumer = new KafkaConsumer();
         // Configure Kafka consumer
         consumer.initialize();
         // Start consumption
