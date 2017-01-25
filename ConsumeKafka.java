@@ -50,7 +50,7 @@ public class ConsumeKafka {
                 JSONObject item = new JSONObject(record.value());
                 String testString = "nothing here";
                 try {
-                    testString = item.getString("name")+" "+item.getString("typeLine") +"\n" + item.getString("id");
+                    testString = item.getString("name")+" "+item.getString("typeLine") +"\n" + item.getString("owner");
                     System.out.println(testString);
                 }
                 catch (Exception oopsNoKey) {

@@ -184,7 +184,7 @@ public class IngestKafka {
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
                             items.getJSONObject(iItems).put("owner", accountName);
-                            System.out.println(items.getJSONObject(iItems).getString("owner"));
+                            //System.out.println(items.getJSONObject(iItems).getString("owner"));
                             wrapProducerSend(previousChange, items.getJSONObject(iItems).toString());
                         }
                     }
