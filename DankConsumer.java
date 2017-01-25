@@ -11,7 +11,7 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
-import org.apache.kafka.clients.KafkaConsumer;
+import org.apache.kafka.clients.Consumer;
 
 public class DankConsumer {
     private ConsumerConnector consumerConnector = null;
@@ -53,7 +53,7 @@ public class DankConsumer {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        KafkaConsumer consumer = new KafkaConsumer();
+        Consumer consumer = new Consumer();
         // Configure Kafka consumer
         consumer.initialize();
         // Start consumption
