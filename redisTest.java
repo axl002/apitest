@@ -4,7 +4,7 @@ import redis.clients.jedis.Jedis;
 public class redisTest {
     public static void main(String[] args) {
         //Connecting to Redis server on localhost
-        Jedis jedis = new Jedis("localhost");
+        Jedis jedis = new Jedis("localhost", 30001);
         System.out.println("Connection to server sucessfully");
         //set the data in redis string
         jedis.set("tutorial-name", "Redis tutorial");
