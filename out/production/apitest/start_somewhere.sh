@@ -1,2 +1,2 @@
 javac -cp dankjson.jar Dankapi.java
-java -cp .:dankjson.jar Dankapi '29610174-30523316-29197805-30064084-30034654' 'hugedump/' '72'
+java -cp .:dankjson.jar Dankapi '40232072-42849848-39877542-46082604-43225518' '/home/ubuntu/hugedump/' '7000'

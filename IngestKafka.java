@@ -172,9 +172,11 @@ public class IngestKafka {
                     previousChange = nextChange;
                     JSONArray stashes = allStash.getJSONArray("stashes");
                     for(int iStash = 0; iStash < stashes.length(); iStash++){
+                        String accountName = stashes.getJSONObject(iStash).getString("accountName");
                         JSONArray items = stashes.getJSONObject(iStash).getJSONArray("items");
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
+                            items.getJSONObject(iItems).append("owner", accountName);
                             wrapProducerSend(previousChange, items.getJSONObject(iItems).toString());
                         }
                     }

@@ -46,11 +46,20 @@ public class ConsumeKafka {
             for (ConsumerRecord<String, String> record : records){
 //                double curOffset = record.offset();
 //                String curKey = record.key();
-                String curVal = record.value();
-                JSONObject item = new JSONObject(curVal);
+//                String curVal = record.value();
+                JSONObject item = new JSONObject(record.value());
                 String testString = "nothing here";
                 try {
-                    testString = item.getString("name")+" "+item.getString("typeLine");
+                    testString = item.getString("name")+" "+item.getString("typeLine") +"\n" + item.getString("owner");
+
+                    try{
+                        String price = item.getString("note");
+
+                        }
+                        // no note no price not for sale skip
+                        catch{
+
+                    }
                 }
                 catch (Exception oopsNoKey) {
                     System.out.println("ooops invalid info pulled try again later...");
