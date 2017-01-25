@@ -15,6 +15,6 @@ public class redisTest {
             jedis.lpush("price", Integer.toString(n));
         }
         // Get the stored data and print it
-        System.out.println("Stored string in redis:: "+ jedis.get("price"));
+        System.out.println("Stored string in redis:: "+ jedis.lpop("price"));
     }
 }
