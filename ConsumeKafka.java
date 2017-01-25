@@ -12,6 +12,10 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
+//redisStuff
+import redis.clients.jedis.Jedis;
+import java.util.Random;
+
 public class ConsumeKafka {
 
     static String whereToDump = "testdump/";
@@ -38,7 +42,12 @@ public class ConsumeKafka {
 
         consumer.subscribe(Arrays.asList(topic));
         System.out.println("Subscribed to topic " + topic);
-        int i = 0;
+
+        //redis connect
+        Jedis jedis = new Jedis("localhost", 30001);
+        System.out.println("Connection to server sucessfully");
+
+        Random rand = new Random();
 
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
@@ -51,7 +60,20 @@ public class ConsumeKafka {
                 String testString = "nothing here";
                 try {
                     testString = item.getString("name")+" "+item.getString("typeLine") +"\n" + item.getString("owner");
-                    System.out.println(testString);
+                    //System.out.println(testString);
+                    try {
+                        String price = item.getString("note");
+                        int  n = rand.nextInt(50) + 1;
+                        jedis.put(item.getString("name")+" "+item.getString("typeLine"), Integer.toString(n));
+                    }
+                    catch (Exception noNote) {
+                        // no note means no price means not on sale
+
+                    }
+                    // push to redis
+
+
+
                 }
                 catch (Exception oopsNoKey) {
                     System.out.println("ooops invalid info pulled try again later...");
