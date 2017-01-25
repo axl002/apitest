@@ -15,7 +15,10 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
-
+//time imports
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class IngestKafka {
 
@@ -74,7 +77,9 @@ public class IngestKafka {
 
         // send time stamp as key
         // send api pull as value
-        producer.send(new ProducerRecord<String, String>(topic, Long.parseLong((LONG)System.currentTimeMillis())+previousChange, urlContent));
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+        Date dateobj = new Date();
+        producer.send(new ProducerRecord<String, String>(topic, df.format(dateobj) +  previousChange, urlContent));
 
     }
     // make JSON object and extract array of user stashes (shops)
