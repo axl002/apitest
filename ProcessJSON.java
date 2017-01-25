@@ -30,6 +30,7 @@ public class ProcessJSON {
         try {
             File dir = new File(whereFind);
             File[] listing = dir.listFiles();
+            System.out.println(listing.length);
             if (listing != null){
                 for(File child : listing){
                     itemize(theLimit);
