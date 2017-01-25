@@ -47,14 +47,14 @@ public class ConsumeKafka {
 //                double curOffset = record.offset();
 //                String curKey = record.key();
                 String curVal = record.value();
-                JSONObject allStash = new JSONObject(curVal);
+                JSONObject item = new JSONObject(curVal);
                 String testString = "nothing here";
                 try {
-                    testString = allStash.getString("next_change_id");
+                    testString = item.getString("name")+item.getString("typeLine");
                 }
                 catch (Exception oopsNoKey) {
                     System.out.println("ooops invalid info pulled try again later...");
-                    TimeUnit.SECONDS.sleep(10);
+                    //TimeUnit.SECONDS.sleep(10);
                 }
 
 
