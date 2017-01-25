@@ -64,7 +64,8 @@ public class ConsumeKafka {
                     try {
                         String price = item.getString("note");
                         int  n = rand.nextInt(50) + 1;
-                        jedis.put(item.getString("name")+" "+item.getString("typeLine"), Integer.toString(n));
+                        jedis.lpush(item.getString("name")+" "+item.getString("typeLine"), Integer.toString(n));
+                        System.out.println(jedis.lpop(item.getString("name")+" "+item.getString("typeLine")));
                     }
                     catch (Exception noNote) {
                         // no note means no price means not on sale
