@@ -22,7 +22,7 @@ public class DankProducer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-
+        // THIS WORKS NOW
         props.put("bootstrap.servers", "localhost:9092");
         //props.put("metadata.broker.list", "broker1:9092,broker2:9092");
         props.put("acks", "all");
