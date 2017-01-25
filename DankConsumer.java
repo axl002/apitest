@@ -16,7 +16,7 @@ public class DankConsumer {
         //String group = args[1].toString();
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
-        //props.put("group.id", group);
+        props.put("group.id", "zookeeper");
         props.put("enable.auto.commit", "true");
         props.put("auto.commit.interval.ms", "1000");
         props.put("session.timeout.ms", "30000");
