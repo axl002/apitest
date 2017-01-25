@@ -176,7 +176,7 @@ public class IngestKafka {
                         try {
                             accountName = stashes.getJSONObject(iStash).getString("accountName");
                         }catch (Exception nullAccount){
-                            System.out.println("null account skipped");
+                            //System.out.println("null account skipped");
                         }
 
 
@@ -184,6 +184,7 @@ public class IngestKafka {
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
                             items.getJSONObject(iItems).append("owner", accountName);
+                            System.out.println(items.getJSONObject(iItems).getString("accountName"));
                             wrapProducerSend(previousChange, items.getJSONObject(iItems).toString());
                         }
                     }
