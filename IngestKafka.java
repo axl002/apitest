@@ -40,7 +40,7 @@ public class IngestKafka {
         //props.put("metadata.broker.list", "broker1:9092,broker2:9092");
         props.put("acks", "all");
         props.put("retries", 0);
-        props.put("batch.size", 16384);
+        props.put("batch.size", 8000000);
         props.put("linger.ms", 1);
         props.put("buffer.memory", 33554432);
 
@@ -79,7 +79,7 @@ public class IngestKafka {
         // send api pull as value
         DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
         Date dateobj = new Date();
-        producer.send(new ProducerRecord<String, String>(topic, df.format(dateobj) +  previousChange, "test string"));
+        producer.send(new ProducerRecord<String, String>(topic, df.format(dateobj) +  previousChange, urlContent));
 
     }
     // make JSON object and extract array of user stashes (shops)
