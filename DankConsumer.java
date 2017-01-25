@@ -13,7 +13,7 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
-import kafka.javaapi.clients.*;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 public class DankConsumer {
     private ConsumerConnector consumerConnector = null;
