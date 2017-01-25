@@ -51,7 +51,7 @@ public class ConsumeKafka {
                 String testString = "nothing here";
                 try {
                     testString = item.getString("name")+" "+item.getString("typeLine") +"\n" + item.getString("owner");
-
+                    Systen.out.println(testString);
                 }
                 catch (Exception oopsNoKey) {
                     System.out.println("ooops invalid info pulled try again later...");

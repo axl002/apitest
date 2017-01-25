@@ -172,8 +172,14 @@ public class IngestKafka {
                     previousChange = nextChange;
                     JSONArray stashes = allStash.getJSONArray("stashes");
                     for(int iStash = 0; iStash < stashes.length(); iStash++){
-                        String accountName = stashes.getJSONObject(iStash).getString("accountName");
-                        System.out.println(accountName + " " +iStash + " "+stashes.length());
+                            String accountName = "nullName";
+                        try {
+                            String accountName = stashes.getJSONObject(iStash).getString("accountName");
+                        }catch (Exception nullAccount){
+                            System.out.println("null account skipped");
+                        }
+
+
                         JSONArray items = stashes.getJSONObject(iStash).getJSONArray("items");
                         for(int iItems = 0; iItems < items.length(); iItems++){
                             // send producer
