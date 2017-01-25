@@ -51,8 +51,6 @@ public class InjestKafka {
 
 
 
-        producer.close()
-
 
         //dank config
         if (args.length >= 1){
@@ -63,6 +61,7 @@ public class InjestKafka {
             //pullAndSave(theSource);
             pullMany(theSource, numberOfQueryToGet);
             //itemize();
+            producer.close();
         }
         catch (Exception eeee){
             eeee.printStackTrace();

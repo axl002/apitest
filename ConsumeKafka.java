@@ -15,7 +15,7 @@ public class ConsumeKafka {
     public static void main(String[] args) throws Exception {
 
         if (args.length > 0){
-            whereToDump = args[0]
+            whereToDump = args[0];
         }
         String topic = "my-topic";
         //String group = args[1].toString();
