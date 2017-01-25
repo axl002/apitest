@@ -2,6 +2,8 @@
  * Created by user on 1/24/17.
  */
 
+package kafka;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +13,6 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
-import org.apache.kafka.clients.Consumer;
 
 public class DankConsumer {
     private ConsumerConnector consumerConnector = null;
