@@ -82,6 +82,7 @@ public class ProcessJSON {
                 for(int j = 0; j<items.length();j++){
                     if(!items.getJSONObject(j).getString("name").equals("")){
                         System.out.println("\t\t" + items.getJSONObject(j).getString("name") + " "+items.getJSONObject(j).getString("typeLine"));
+                        System.out.println("\t\t" + items.getJSONObject(j).getString("price"));
                     }
                 }
             }
