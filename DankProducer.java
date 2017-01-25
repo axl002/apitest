@@ -22,7 +22,9 @@ public class DankProducer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("metadata.broker.list", "broker1:9092,broker2:9092");
+
+        props.put("bootstrap.servers", "localhost:9092");
+        //props.put("metadata.broker.list", "broker1:9092,broker2:9092");
         props.put("acks", "all");
         props.put("retries", 0);
         props.put("batch.size", 16384);
