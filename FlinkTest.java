@@ -31,3 +31,4 @@ public class FlinkTest {
         env.execute("Ingestion time example");
 
     }
+}
