@@ -14,8 +14,12 @@ public class redisTest{
         //System.out.println(itemClass+ " "+jedis.lrange(itemClass, 0, 9));
         try {
             while(true){
-                jedis.publish(itemClass, itemClass+ " "+jedis.lrange(itemClass, 0, 9));
-                TimeUnit.SECONDS.sleep(1);
+                List<String> stuff = jedis.lrange(itemClass, 0, 10);
+                for(String singleThing : stuff){
+                    jedis.publish(itemClass, itemClass+ " "+ singleThing);
+                    TimeUnit.SECONDS.sleep(1);
+                }
+
             }
         }
         catch (Exception oops){
