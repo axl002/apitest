@@ -44,7 +44,7 @@ public class ConsumeKafka {
         System.out.println("Subscribed to topic " + topic);
 
         //redis connect
-        Jedis jedis = new Jedis("localhost", 30001);
+        Jedis jedis = new Jedis("localhost", 30002);
         System.out.println("Connection to redis server sucessfully");
 
         Random rand = new Random();
@@ -63,7 +63,7 @@ public class ConsumeKafka {
                     //System.out.println(testString);
                     try {
                         String price = item.getString("note");
-                        double  n = CurrencyConverter.parseValue(price);
+                        double n = CurrencyConverter.parseValue(price);
                         jedis.lpush(item.getString("typeLine"), Double.toString(n));
                         System.out.println(item.getString("typeLine")+" "+ price);
                     }
