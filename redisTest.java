@@ -7,7 +7,7 @@ public class redisTest{
     public static void main(String[] args) {
         String itemClass = args[0];
         //Connecting to Redis server on localhost, syntax = string for local host, int for port num
-        Jedis jedis = new Jedis("localhost", 30002);
+        Jedis jedis = new Jedis("localhost", 30003);
         System.out.println("Connection to server sucessfully");
         //set the data in redis string
 
