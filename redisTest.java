@@ -1,6 +1,6 @@
 import redis.clients.jedis.Jedis;
 
-import java.util.*
+import java.util.*;
 
 public class redisTest{
     public static void main(String[] args) {
