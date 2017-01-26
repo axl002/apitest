@@ -64,7 +64,7 @@ public class ConsumeKafka {
                     //System.out.println(testString);
                     try {
                         String price = item.getString("note");
-                        double n = CurrencyConverter.parseValue(price);
+                        double n = parseValue(price);
                         jedis.lpush(item.getString("typeLine"), Double.toString(n));
                         System.out.println(item.getString("typeLine")+" "+ Double.toString(n));
                     }
@@ -91,7 +91,25 @@ public class ConsumeKafka {
 
 
 
+
         }
+    }
+
+    static double parseValue(String note){
+        String dankNote = note.toLowerCase();
+        // check if buyout
+        if(dankNote.contains("~b/o".toLowerCase())){
+            if (dankNote.contains("chaos")){
+                return Double.parseDouble(dankNote.replaceAll("[^0-9]+", ""))/72;
+            }
+            else if (dankNote.contains("exa")){
+                return Double.parseDouble(dankNote.replaceAll("[^0-9]+", ""));
+            }
+            else {
+                return -1;
+            }
+        }
+        return -2;
     }
 
 }
