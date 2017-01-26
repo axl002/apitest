@@ -16,6 +16,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import redis.clients.jedis.Jedis;
 import java.util.Random;
 
+
 public class ConsumeKafka {
 
     static String whereToDump = "testdump/";
@@ -65,7 +66,7 @@ public class ConsumeKafka {
                         String price = item.getString("note");
                         double n = CurrencyConverter.parseValue(price);
                         jedis.lpush(item.getString("typeLine"), Double.toString(n));
-                        System.out.println(item.getString("typeLine")+" "+ price);
+                        System.out.println(item.getString("typeLine")+" "+ Double.toString(n));
                     }
                     catch (Exception noNote) {
                         // no note means no price means not on sale
